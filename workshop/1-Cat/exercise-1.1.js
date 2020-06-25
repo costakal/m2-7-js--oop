@@ -31,16 +31,16 @@ let boots = new Cat();
 
 console.log(boots);
 
-```
-Cat {
-  species: 'cat',
-  tiredness: 0,
-  hunger: 0,
-  loneliness: 0,
-  happiness: 0
-}
-```;
+// Cat {
+//   species: 'cat',
+//   tiredness: 0,
+//   hunger: 0,
+//   loneliness: 0,
+//   happiness: 0
+// }
 
 // D) What if I want to output just boots' species?
 
 console.log(boots.species);
+
+// cat
