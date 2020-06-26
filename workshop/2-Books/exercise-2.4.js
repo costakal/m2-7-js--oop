@@ -9,7 +9,7 @@ class BookList {
   }
   add = (book) => {
     this.books.push(book);
-    this.currentlyReading = book;
+    this.currentlyReading = this.books[0];
   };
   getNumRead = () => {
     let booksRead = 0;
@@ -29,7 +29,7 @@ class BookList {
     });
     return booksUnread;
   };
-  finishReading = (bookTitle) => {
+  startReading = (bookTitle) => {
     let currentBook = this.books.find((book) => {
       if (bookTitle === book.title) {
         return true;
@@ -37,16 +37,38 @@ class BookList {
     });
     this.currentlyReading = currentBook;
   };
-  startReading = (bookTitle) => {
-    let startNewBook = this.books.find((book) => {
+  finishReading = (bookTitle) => {
+    let finishedBook = this.books.find((book) => {
       if (bookTitle === book.title) {
         return true;
       }
     });
-    this.lastRead = this.currentlyReading;
-    this.currentlyReading = startNewBook;
+    this.lastRead = finishedBook;
+    this.currentlyReading = null;
   };
 }
+
+// startReading = (bookTitle) => {
+//   // When we start reading a book, we should set the `currentlyReading` property
+//   // to point to it.
+//       let currentBook = this.books.find((book) => {
+//         if (book.title  === bookTitle) {
+//           return true;
+//         }
+//       });
+//       this.currentlyReading = currentBook;
+//     };
+//     finishReading = (bookTitle) => {
+//       // set `currentlyReading` back to `null`,
+//   // and set `lastRead` to the book we just finished.
+//       let finishedBook = this.books.find((book) => {
+//         if (book.title = bookTitle) {
+//           return true;
+//         }
+//       });
+//       this.currentlyReading = null;
+//       this.lastRead = finishedBook;
+//     };
 
 class Book {
   constructor(title, genre, author, isRead) {
